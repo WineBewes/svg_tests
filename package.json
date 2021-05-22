@@ -1,0 +1,23 @@
+{
+  "name": "svg_tests",
+  "version": "1.0.0",
+  "description": "spelen met svg",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WineBewes/svg_tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WineBewes/svg_tests/issues"
+  },
+  "homepage": "https://github.com/WineBewes/svg_tests#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
