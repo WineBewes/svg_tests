@@ -5,11 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Let's play with SVG !</title>
-  <link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
+  <!--<link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>-->
+  <style>
+    .svg-play {
+      width:800px;
+      height: 300px;
+      margin-left:250px;
+      border: 1px red solid;
+    }
+  </style>
 </head>
 <body><h1>Let's play with SVG !</h1>
-  <svg class="svg_play" viewBox="0 0 400 800">
-    <circle r="50" cx="200" cy="60" fill="grey" />
-  </svg>
+  <svg id="viewport" class="svg-play" viewBox="0 0 800 300">
+    <style>
+      .tp { font: 13px sans-serif; }
+    </style>
+    <line stroke="black" stroke-width="2" x1="149" y1="0" x2="149" y2="300" />
+    <line stroke="black" stroke-width="2" x1="0" y1="149" x2="300" y2="149" />
+    <circle r="50" cx="150" cy="150" fill="grey" />
+  
+    <text x="20" y="35" class="tp">0</text>
+    <text x="30" y="35" class="tp">1</text>
+    <text x="40" y="35" class="tp">2</text>
+    <text x="50" y="35" class="tp">3</text>
+    <text x="60" y="35" class="tp">4</text>
+    </svg>
+  <div>test</div>
+  <script src="main.js"></script>
 </body>
 </html>
