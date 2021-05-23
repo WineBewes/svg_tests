@@ -1,4 +1,13 @@
 .svg-play {
-  height: 100px;
-  width: 200px;
+  width:800px;
+  height: 300px;
+  margin-left:250px;
+  border: 1px red solid;
 }
+
+.bar  { stroke: grey;}
+.line { stroke: grey;}
+.line:link { stroke: blue; stroke-width: 3;}
+.line:visited { stroke: blue; stroke-width: 3;}
+.line:hover { stroke: red; stroke-width:5;}
+.line:active { stroke: blue; stroke-width: 3;}
