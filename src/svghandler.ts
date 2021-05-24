@@ -79,8 +79,6 @@ export class SvgHandler {
 
   private handleKeyUp(event: KeyboardEvent): void {
 
-    this.fretBusy = true;
-
     if(this.activeLineIndex >= 0 && this.activeLineIndex < this.aantalSnaren) {
       switch(event.key) {
         case 'ArrowUp':{
@@ -94,8 +92,10 @@ export class SvgHandler {
           return;
         }
         case this.acceptedFretKeys[event.key]: {
+
           const now = Date.now();
           const deadline = this.lastKeyPressed + this.keyMilliseconds;
+          this.fretBusy = true;
   
           if (now >= deadline){
             this.keyBusy = false;
