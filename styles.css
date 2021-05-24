@@ -1,10 +1,20 @@
-.svg-play {
-  width:800px;
-  height: 200px;
-  margin-left:250px;
-  border: 1px blue dashed;
+body {
+  font-family: sans-serif;
 }
 
+#viewportView {
+  margin-left:250px;
+  width:800px;
+}
+
+.svg-play {
+  height: 200px;
+  border: 1px blue dashed;
+}
+.fretbusy {
+  background: pink;
+  width: max-content;
+}
 .bar  { 
   stroke: grey; 
   stroke-width: 2
@@ -49,4 +59,10 @@
 .activeline:active { 
   stroke: lightgreen;
   stroke-width: 2
+}
+.visible {
+  visibility: visible;
+}
+.not-visible {
+  visibility: hidden;
 }
