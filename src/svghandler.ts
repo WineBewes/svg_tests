@@ -1,14 +1,5 @@
 export class SvgHandler {
 
-  private pristineSvg = `
-  <line class="bar" x1="20" y1="20" x2="20" y2="80" />
-  <line class="line" x1="20" y1="20" x2="780" y2="20" />
-  <line class="line" x1="20" y1="35" x2="780" y2="35" />
-  <line class="line" x1="20" y1="50" x2="780" y2="50" />
-  <line class="line" x1="20" y1="65" x2="780" y2="65" />
-  <line class="line" x1="20" y1="80" x2="780" y2="80" />
-  <line class="bar" x1="780" y1="20" x2="780" y2="80" /> 
-  `;
   private vp = document.getElementById('viewport');
   private vpDiv = document.getElementById('viewportContainer');
   private fretbusyDiv = document.getElementsByClassName('fretbusy');
@@ -17,6 +8,8 @@ export class SvgHandler {
   private svgTop;
   private topMargin = 20;
   private lineSpace = 15;
+  private noteOffsetX = 12;
+  private noteOffsetY = 5;
   private aantalSnaren = 5;
   private aantalFrets = 22;
   private keyMilliseconds = 300;
@@ -25,12 +18,16 @@ export class SvgHandler {
   private lastKey = '';
   private keyBusy = false;
   private _fretBusy = false;
-    
+  private startPositionX = 20;
+  private endPositionX = 780;
+  private notePositionX = this.startPositionX;  
+  private startPositionY = 20;
+  private notePositionY = this.startPositionY + 20;  
   constructor() {
 
     this.svgTop = this.vpDiv.offsetTop;
     
-    document.addEventListener('click', (event: MouseEvent) => {
+    this.vp.addEventListener('click', (event: MouseEvent) => {
       this.activeLineIndex = Math.round((event.pageY - (this.svgTop + this.topMargin)) / this.lineSpace);
       this.activateLine();
     });
@@ -42,18 +39,11 @@ export class SvgHandler {
     this.clear();
   }
 
-      /*
-    +
-      <text x="20" y="35" class="tp" stroke="red">0</text> + 
-      <text x="30" y="35" class="tp">1</text> +
-      <text x="40" y="35" class="tp">2</text> +
-      <text x="50" y="35" class="tp">3</text> +
-      <text x="60" y="35" class="tp">4</text>
-      */       
-
   clear() {
-    this.vp.innerHTML = this.pristineSvg;
-    this.grabElements();;
+    this.vp.innerHTML = this.getPristineSvg();
+    this.grabElements();
+    this.activeLineIndex = 0;
+    this.activateLine();
   }
 
   private grabElements() {
@@ -67,15 +57,29 @@ export class SvgHandler {
     }
 
     for (let i = 0; i < this.lines.length; i++) {
-      if(this.lines[i].classList.contains('activeline')){
-        this.lines[i].classList.toggle('activeline');    
-      }    
+        this.lines[i].classList.remove('activeline');    
     }
-
     if(this.activeLineIndex >= 0 && this.activeLineIndex < this.aantalSnaren) {
-      this.lines[this.activeLineIndex].classList.toggle('activeline');
+      this.lines[this.activeLineIndex].classList.add('activeline');
+      this.notePositionY = parseInt(this.lines[this.activeLineIndex].getAttribute("y1")) + this.noteOffsetY;
     }
   }
+
+  private getPristineSvg(): string {
+    let svg = `
+      <line class="bar" x1="${this.startPositionX}" y1="${this.startPositionY}" x2="${this.startPositionX}" y2="${this.startPositionY + ((this.aantalSnaren - 1) * this.lineSpace)}" />
+      <line class="bar" x1="${this.endPositionX}" y1="${this.startPositionY}" x2="${this.endPositionX}" y2="${this.startPositionY + ((this.aantalSnaren - 1) * this.lineSpace)}" />
+    `;
+
+    for (var i = 0; i < this.aantalSnaren; i++){
+      svg += `
+      <line class="line" x1="${this.startPositionX}" y1="${this.startPositionY + (i * this.lineSpace)}" x2="${this.endPositionX}" y2="${this.startPositionY + (i * this.lineSpace)}" />
+      `;
+    }
+    return svg; 
+  }
+
+  
 
   private handleKeyUp(event: KeyboardEvent): void {
 
@@ -130,11 +134,10 @@ export class SvgHandler {
   set fretBusy(value: boolean) {
     this._fretBusy = value;
     for (let i = 0; i < this.fretbusyDiv.length; i++){
+      this.fretbusyDiv[i].classList.remove('not-visible');
       if (this._fretBusy) {
         this.fretbusyDiv[i].classList.remove('not-visible')
-        this.fretbusyDiv[i].classList.add('visible')
       } else {
-        this.fretbusyDiv[i].classList.remove('visible')
         this.fretbusyDiv[i].classList.add('not-visible')
       }
     }
@@ -145,7 +148,10 @@ export class SvgHandler {
     if(fret > this.aantalFrets) {
       return;
     }
-    console.log(`ik maak de noot ${fret}`);
+    const note =  `<text x="${this.notePositionX}" y="${this.notePositionY}" class="tp">${fretAsString}</text>`;
+    
+    this.vp.innerHTML += note;
+    this.notePositionX += this.noteOffsetX;
   }
 
 }

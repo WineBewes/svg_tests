@@ -11,26 +11,30 @@ body {
   height: 200px;
   border: 1px blue dashed;
 }
+
+.tp {
+  font-size: 12px;
+}
 .fretbusy {
   background: pink;
   width: max-content;
 }
 .bar  { 
   stroke: grey; 
-  stroke-width: 2
+  stroke-width: 1
 }
 
 .line { 
   stroke: grey;
-  stroke-width: 2
+  stroke-width: 1
 }
 .line:link { 
   stroke: lightgreen;
-  stroke-width: 2;
+  stroke-width: 1;
 }
 .line:visited { 
   stroke: lightgreen;
-  stroke-width: 2;
+  stroke-width: 1;
 }
 .line:hover { 
   stroke: red; 
@@ -38,30 +42,27 @@ body {
 }
 .line:active { 
   stroke: lightgreen;
-  stroke-width: 2;
+  stroke-width: 1;
 }
 .activeline { 
   stroke: lightgreen;
-  stroke-width: 2
+  stroke-width: 1
 }
 .activeline:link { 
   stroke: lightgreen;
-  stroke-width: 2
+  stroke-width: 1
 }
 .activeline:visited { 
   stroke: lightgreen;
-  stroke-width: 2
+  stroke-width: 1
 }
 .activeline:hover { 
   stroke: lightgreen;
-  stroke-width: 2
+  stroke-width: 1
 }
 .activeline:active { 
   stroke: lightgreen;
-  stroke-width: 2
-}
-.visible {
-  visibility: visible;
+  stroke-width: 1
 }
 .not-visible {
   visibility: hidden;
