@@ -1,13 +1,52 @@
 .svg-play {
   width:800px;
-  height: 300px;
+  height: 200px;
   margin-left:250px;
-  border: 1px red solid;
+  border: 1px blue dashed;
 }
 
-.bar  { stroke: grey;}
-.line { stroke: grey;}
-.line:link { stroke: blue; stroke-width: 3;}
-.line:visited { stroke: blue; stroke-width: 3;}
-.line:hover { stroke: red; stroke-width:5;}
-.line:active { stroke: blue; stroke-width: 3;}
+.bar  { 
+  stroke: grey; 
+  stroke-width: 2
+}
+
+.line { 
+  stroke: grey;
+  stroke-width: 2
+}
+.line:link { 
+  stroke: lightgreen;
+  stroke-width: 2;
+}
+.line:visited { 
+  stroke: lightgreen;
+  stroke-width: 2;
+}
+.line:hover { 
+  stroke: red; 
+  stroke-width:5;
+}
+.line:active { 
+  stroke: lightgreen;
+  stroke-width: 2;
+}
+.activeline { 
+  stroke: lightgreen;
+  stroke-width: 2
+}
+.activeline:link { 
+  stroke: lightgreen;
+  stroke-width: 2
+}
+.activeline:visited { 
+  stroke: lightgreen;
+  stroke-width: 2
+}
+.activeline:hover { 
+  stroke: lightgreen;
+  stroke-width: 2
+}
+.activeline:active { 
+  stroke: lightgreen;
+  stroke-width: 2
+}

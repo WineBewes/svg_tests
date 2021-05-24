@@ -5,7 +5,7 @@
   "files": [
     "dist"
   ],
-  "source": "src/main.js",
+  "source": "src/main.ts",
   "main": "dist/main.cjs.js",
   "module": "dist/main.esm.js",
   "browser": "dist/main.js",
