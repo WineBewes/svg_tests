@@ -1,0 +1,2 @@
+- elke noot (later : symbool [slide, choke, etc.]) krijgt een aparte lijn 
+- die lijn krijgt een id, waardoor we het gemakkelijk kunnen terugvinden
