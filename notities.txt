@@ -1,2 +1,15 @@
 - elke noot (later : symbool [slide, choke, etc.]) krijgt een aparte lijn 
 - die lijn krijgt een id, waardoor we het gemakkelijk kunnen terugvinden
+- de id bestaat uit de y(snaar) en x(tijd) positie, vb. id="0-9"
+
+- een x-positie is eigenlijk een positie in een maat 
+- de basiswaarde van een noot is 1/16e
+- dwz dat in een maat van 4/4 er 4 x 4 = 16 posities kunnen worden ingenomen (analaoog aan tabledit)
+de breedte van een cijfer = 6 pixels, 2 cijfers = 12 pixels
+met nog wat tussenspatie komt dat op 20 pixels per noot 
+(2 cijfers begint op positie 4, 1 cijfer begint dan op positie 7)
+=> zal nog wat moeten experimenteren
+
+maar 20px * 16 noten = 320 pixels voor 1 maat
+
+vb : <text  x="${this.notePositionX}" y="${this.notePositionY}" class="tp">${fretAsString}</text>sdf
